@@ -37,11 +37,10 @@
             {% for coinventor in l.coinventors %}
               <li>
                 {% if coinventor.url %}
-                  <a href="{{ coinventor.url }}">{{ coinventor.name }}
+                  <a href="{{ coinventor.url }}">{{ coinventor.name }}</a>
                     {% if coinventor.label == 'LinkedIn' %}
-                      <span class="icon icon--linkedin">{% include icon-linkedin.svg %}</span>
+                      <span class="icon icon--linkedin"> {% include icon-linkedin.svg %}</span>
                     {% endif %}
-                  </a>
                 {% endif %}
               </li>
             {% endfor %}
