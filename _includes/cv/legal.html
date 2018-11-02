@@ -7,10 +7,10 @@
     <div class="entry-content">
       {% for l in cv.legal %}
         {% if l.name %}
-          <h3 class="title">{{ l.name }}</h3>
+          <h3 class="legal-title">{{ l.name }}</h3>
         {% endif %}
         {% if l.reference %}
-          <h4 class="reference">
+          <h4 class="legal-reference">
             {% if l.source %}
               {% if l.type %}
                {{ l.type | append: ' &mdash; ' }}<a href="{{ l.source.url }}">{{ l.reference }}</a>
@@ -27,13 +27,13 @@
           </h4>
         {% endif %}
         {% if l.description %}
-          <div class="description">
+          <div class="legal-description">
             <p>{{ l.description }}</p>
           </div>
         {% endif %}
         {% if l.coinventors %}
-          <h5 class="coinventor-title">Co-Inventors:</h5>
-          <ul class="coinventors">
+          <h5 class="legal-coinventor-title">Co-Inventors:</h5>
+          <ul class="legal-coinventors">
             {% for coinventor in l.coinventors %}
               <li>
                 {% if coinventor.url %}
