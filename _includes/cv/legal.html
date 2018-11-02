@@ -34,7 +34,7 @@
         {% if l.coinventors %}
           <h5 class="coinventor-title">Co-Inventors:</h5>
           <ul class="coinventors">
-            {% for coinventor in w.coinventors %}
+            {% for coinventor in l.coinventors %}
               <li>
                 {% if coinventor.url %}
                   <a href="{{ coinventor.url }}">{{ coinventor.name }}
