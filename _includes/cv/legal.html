@@ -1,0 +1,68 @@
+{% if cv.legal %}
+  <div id="legal" class="entry">
+    <header class="entry-header">
+      <h3 class="entry-title">Legal</h3>
+    </header>
+
+    <div class="entry-content">
+      {% for l in cv.legal %}
+        {% if l.name %}
+          <h3 class="title">{{ l.name }}</h3>
+        {% endif %}
+        {% if l.reference %}
+          <h4 class="reference">
+            {% if l.source %}
+              {% if l.type %}
+               {{ l.type | append: ' &mdash; ' }}<a href="{{ l.source.url }}">{{ l.reference }}</a>
+              {% else %}
+                <a href="{{ l.source.url }}">{{ l.reference }}</a>
+              {% endif %}
+            {% else %}
+              {% if l.type %}
+               {{ l.type | append: ' &mdash; ' }}{{ l.reference }}
+              {% else %}
+                {{ l.reference }}
+              {% endif %}
+            {% endif %}
+          </h4>
+        {% endif %}
+        {% if l.description %}
+          <div class="description">
+            <p>{{ l.description }}</p>
+          </div>
+        {% endif %}
+        {% if l.co-inventors %}
+          <h5 class="co-inventor-title">Co-Inventors:</h5>
+          <ul class="co-inventors">
+            {% for co-inventor in w.co-inventors %}
+              <li>
+                {% if co-inventor.url %}
+                  <a href="{{ co-inventor.url }}">{{ co-inventor.name }}
+                    {% if co-inventor.label == 'LinkedIn' %}
+                      <span class="icon icon--linkedin">{% include icon-linkedin.svg %}</span>
+                    {% endif %}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if l.assignee %}
+          <h5 class="legal-assignee-title">Assignee:</h5>
+          {% if l.assignee.url %}
+           <a href="{{ l.assignee.url }}">{{ l.assignee.name }}</a>
+          {% else %}
+            {{ l.assignee.name }}
+          {% endif %}
+        {% endif %}
+        {% if l.applicationDate %}
+          <h5 class="legal-applicationDate-title">Applied:</h5>
+          <span class="date">{{ l.applicationDate }}</span>
+        {% endif %}
+        {% if l.grantDate %}
+          <h5 class="legal-grantDate-title">Granted:</h5>
+          <span class="date">{{ l.grantDate }}</span>
+        {% endif %}
+    </div>
+  </div>
+{% endif %}
