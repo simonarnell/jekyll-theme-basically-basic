@@ -1,12 +1,12 @@
 {% if cv.references %}
-  <div id="references" class="entry">
+  <section id="references" class="entry">
     <header class="entry-header">
       <h3 class="entry-title">References</h3>
     </header>
 
     <div class="entry-content">
       {% for r in cv.references %}
-        <div class="item">
+        <article class="item">
           {% if r.reference %}
             <blockquote class="reference">
               {{ r.reference |markdownify }}
@@ -17,8 +17,8 @@
               {% endif %}
             </blockquote>
           {% endif %}
-        </div>
+        </article>
       {% endfor %}
     </div>
-  </div>
+  </section>
 {% endif %}
