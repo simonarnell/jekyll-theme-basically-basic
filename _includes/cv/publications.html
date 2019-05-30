@@ -26,7 +26,11 @@
             <div class="summary">{{ p.summary | markdownify }}</div>
           {% endif %}
           {% if p.coauthors %}
-            <h5 class="publication-coauthors-title">Co-authors:</h5>
+            {% if coauthors.size > 1 %}
+              <h5 class="publication-coauthors-title">Co-authors:</h5>
+            {% else %}
+              <h5 class="publication-coauthors-title">Co-author:</h5>
+            {% endif %}
             <ul class="publication-coauthors">
               {% for coauthor in p.coauthors %}
                 <li>
