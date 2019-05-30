@@ -25,6 +25,21 @@
           {% if p.summary %}
             <div class="summary">{{ p.summary | markdownify }}</div>
           {% endif %}
+          {% if p.coauthors %}
+            <h5 class="publication-coauthors-title">Co-authors:</h5>
+            <ul class="publication-coauthors">
+              {% for coauthor in p.coauthors %}
+                <li>
+                  {% if coauthors.url %}
+                    <a href="{{ coauthors.url }}">{{ coauthors.name }}</a>
+                      {% if coauthors.label == 'LinkedIn' %}
+                        <span class="icon icon--linkedin"> {% include icon-linkedin.svg %}</span>
+                      {% endif %}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </article>
       {% endfor %}
     </div>
