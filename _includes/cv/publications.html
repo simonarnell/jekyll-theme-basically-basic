@@ -30,9 +30,9 @@
             <ul class="publication-coauthors">
               {% for coauthor in p.coauthors %}
                 <li>
-                  {% if coauthors.url %}
-                    <a href="{{ coauthors.url }}">{{ coauthors.name }}</a>
-                      {% if coauthors.label == 'LinkedIn' %}
+                  {% if coauthor.url %}
+                    <a href="{{ coauthor.url }}">{{ coauthor.name }}</a>
+                      {% if coauthor.label == 'LinkedIn' %}
                         <span class="icon icon--linkedin"> {% include icon-linkedin.svg %}</span>
                       {% endif %}
                   {% endif %}
