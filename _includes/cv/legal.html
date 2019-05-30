@@ -46,6 +46,8 @@
                       {% if coinventor.label == 'LinkedIn' %}
                         <span class="icon icon--linkedin"> {% include icon-linkedin.svg %}</span>
                       {% endif %}
+                  {% elsif coinventor.name %}
+                    {{ coinventor.name }}
                   {% endif %}
                 </li>
               {% endfor %}
