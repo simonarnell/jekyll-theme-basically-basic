@@ -35,6 +35,8 @@
                       {% if coauthor.label == 'LinkedIn' %}
                         <span class="icon icon--linkedin"> {% include icon-linkedin.svg %}</span>
                       {% endif %}
+                  {% elsif coauthor.name %}
+                    {{ coauthor.name }}
                   {% endif %}
                 </li>
               {% endfor %}
