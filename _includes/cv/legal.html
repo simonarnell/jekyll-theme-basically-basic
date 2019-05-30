@@ -33,7 +33,11 @@
             </div>
           {% endif %}
           {% if l.coinventors %}
-            <h5 class="legal-coinventor-title">Co-Inventors:</h5>
+            {% if l.coinventors.size > 1 %}
+              <h5 class="legal-coinventor-title">Co-Inventors:</h5>
+            {% else %}
+              <h5 class="legal-coinventor-title">Co-Inventor:</h5>
+            {% endif %}
             <ul class="legal-coinventors">
               {% for coinventor in l.coinventors %}
                 <li>
