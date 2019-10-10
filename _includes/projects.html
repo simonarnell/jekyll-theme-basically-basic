@@ -1,0 +1,16 @@
+    <ul id="menu-main-navigation" class="menu">
+      <!-- Home link -->
+      <li class="menu-item">
+        <span>Projects</span>
+      </li>
+    {% assign page_paths = site.data.projects.paths %}
+    {% for path in page_paths %}
+      {% if path.title %}
+        <li class="menu-item project-item">
+          <a href="{{ path.url | relative_url }}" itemprop="url">
+            <span itemprop="name">{{ path.title | escape }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
